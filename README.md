@@ -167,3 +167,101 @@ var testeArray =
 		console.log(testeArray[2]); // acessa apenas o indice 2 
    
    ```
+   # acessando json via jquery (de forma local com o $.each)
+   ```
+   <!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>PHP com AJAX</title>
+    </head>
+
+    <body>
+        <div id="listagem">-</div>
+        <script src="jquery.js"></script>
+        <script>
+			$.getJSON('_json/produtos.json', function(data){ // chama
+            $.each(data, function(i,valor){
+
+                console.log(valor.nomeproduto); // chamando todos os elementos nomeproduto
+
+                console.log(valor); // chamando todos os elementos do json
+            });
+
+            });
+		</script>
+    </body>
+</html>
+   ```
+   
+   
+   # acessando json via jquery (de forma local)
+   
+   
+   obs: arquivos externos json e jquery 
+   ```
+   <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		.texto {font-size: 30px}
+	</style>
+</head>
+<body>
+	<center> <p class="texto"> Neste mini tutorial vamos aprender as formas de trabalhar com o ajax utilizando jquery</p></center>
+	<h1 id="h1ElementAdd"></h1> <!--elemento que recebe o texto-->
+	<button id="ViaLoad">Carregar via load</button> <!--botao que acionar a requisição-->
+
+	<script src="jquery.js"></script>
+	<script type="text/javascript">
+		$.getJSON('local.json',function(data) {
+			console.log(data); // mostrar todas as informações
+			console.log(data[0]); // chama apenas os campos do indice 0
+			console.log(data[0].senha); // chama apenas o campo do indice 0 senha
+		});
+	</script>
+</body>
+</html>
+   ```
+   
+   
+   
+   # Apredendo ajax com jquery (utilizando o método LOAD() do jquery)
+   
+   obs: arquivos extras são o jquery e o texto.txt
+   
+   ```
+   <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		.texto {font-size: 30px}
+	</style>
+</head>
+<body>
+	<center> <p class="texto"> Neste mini tutorial vamos aprender as formas de trabalhar com o ajax utilizando jquery</p></center>
+	<h1 id="h1ElementAdd"></h1> <!--elemento que recebe o texto-->
+	<button id="ViaLoad">Carregar via load</button> <!--botao que acionar a requisição-->
+
+	<script src="jquery.js"></script>
+	<script type="text/javascript">
+		$('#ViaLoad').on('click',carregarAjax); // seleciona o elemento e evento
+
+		function carregarAjax() // função a ser chamada pelo evento
+		{
+			$("#h1ElementAdd").load('texto.txt'); // forma via ajax pelo jquery
+		}
+	</script>
+</body>
+</html>
+   ```
+   
+   
